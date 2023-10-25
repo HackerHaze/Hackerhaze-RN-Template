@@ -1,3 +1,38 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@core/*": [
+        "src/core/*"
+      ],
+      "@features/*": [
+        "src/features/*"
+      ],
+      "@redux/*": [
+        "src/redux/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ],
+      "@utils/*": [
+        "src/shared/utils/*"
+      ],
+      "@vars/*": [
+        "src/shared/vars/*"
+      ],
+      "@components/*": [
+        "src/shared/components/*"
+      ],
+      "@hooks/*": [
+        "src/shared/hooks/*"
+      ]
+    }
+  }
 }
