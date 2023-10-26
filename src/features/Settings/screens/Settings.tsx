@@ -4,15 +4,15 @@ import React from 'react';
 // import {localization} from '../../common/localization/localization';
 // import {CommonStyles} from '../../core/theme/commonStyles';
 
-const MainScreen: NavigationFunctionComponent = () => {
+export const SettingsScreen: NavigationFunctionComponent = () => {
   return (
     <ScrollView contentInsetAdjustmentBehavior={'automatic'} style={{}}>
-      <Text>Main Screen</Text>
+      <Text>Settings</Text>
     </ScrollView>
   );
 };
 
-MainScreen.options = {
+SettingsScreen.options = {
   topBar: {
     largeTitle: {
       visible: true,
@@ -21,9 +21,7 @@ MainScreen.options = {
       visible: false,
     },
     title: {
-      text: 'Main Screen',
+      text: 'Settings',
     },
   },
 };
-
-export default MainScreen;
