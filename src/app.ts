@@ -2,7 +2,7 @@ import {Navigation} from 'react-native-navigation';
 // import {setInitialRoot} from './navigation/roots';
 // import {setLanguage} from './common/localization/localization';
 // import {registerComponents, setDefaultOptions} from './navigation/navigation';
-import {setInitialRoot} from '@shared/navigation/root';
+import {setInitialRoot} from '@shared/navigation/roots';
 import {
   registerComponents,
   setDefaultOptions,

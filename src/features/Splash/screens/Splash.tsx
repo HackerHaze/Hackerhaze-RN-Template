@@ -1,6 +1,6 @@
 import Loading from '@shared/components/Loading';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import {setOnboardingRoot, setTabsRoot} from '@shared/navigation/root';
+import {setOnboardingRoot, setTabsRoot} from '@shared/navigation/roots';
 import React, {useEffect} from 'react';
 import {NavigationFunctionComponent} from 'react-native-navigation';
 

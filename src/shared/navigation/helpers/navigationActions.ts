@@ -5,11 +5,11 @@ import {
 } from 'react-native-navigation';
 import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
 import {INavigationPage} from '@core/index';
+import {provider} from '@redux/provider';
 
 export function registerNavigationComponent(
   page: INavigationPage,
   Component: NavigationFunctionComponent<any>,
-  //   reduxEnabled?: boolean,
 ) {
   //   if (reduxEnabled) {
   //     return Navigation.registerComponent(
@@ -20,7 +20,7 @@ export function registerNavigationComponent(
   //   } else {
   return Navigation.registerComponent(
     page.name,
-    () => gestureHandlerRootHOC<any>(Component),
+    () => gestureHandlerRootHOC<any>(provider(Component)),
     () => Component,
   );
   //   }
