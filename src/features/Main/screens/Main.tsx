@@ -1,13 +1,14 @@
 import {NavigationFunctionComponent} from 'react-native-navigation';
-import {ScrollView, Text} from 'react-native';
+import {ScrollView} from 'react-native';
 import React from 'react';
+import Logo from '@assets/images/logo.svg';
 // import {localization} from '../../common/localization/localization';
 // import {CommonStyles} from '../../core/theme/commonStyles';
 
 const MainScreen: NavigationFunctionComponent = () => {
   return (
     <ScrollView contentInsetAdjustmentBehavior={'automatic'} style={{}}>
-      <Text>Main Screen</Text>
+      <Logo width={50} height={50} />
     </ScrollView>
   );
 };
