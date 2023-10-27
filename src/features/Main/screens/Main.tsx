@@ -1,5 +1,5 @@
 import {NavigationFunctionComponent} from 'react-native-navigation';
-import {ScrollView} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import React from 'react';
 import Logo from '@assets/images/logo.svg';
 import Animated, {
