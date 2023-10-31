@@ -33,7 +33,10 @@ redux.middlewares?.push(logger);
 const persistConfig = {
   key: 'async-storage',
   storage: AsyncStorage,
-  whitelist: ['app'],
+  whitelist: ['app', 'auth'],
+};
+const onRehydrateStorage = () => {
+  store.dispatch.app.setLoading(false);
 };
 
 export const store = init<RootModel, FullModel>({
@@ -43,7 +46,7 @@ export const store = init<RootModel, FullModel>({
     updatedPlugin(),
     immerPlugin(),
     selectPlugin(),
-    persistPlugin(persistConfig),
+    persistPlugin(persistConfig, undefined, undefined, onRehydrateStorage),
   ],
   redux,
 });

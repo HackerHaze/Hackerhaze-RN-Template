@@ -1,20 +1,30 @@
 import Loading from '@shared/components/Loading';
+import {useReduxState} from '@shared/hooks/useReduxState';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import {setOnboardingRoot, setTabsRoot} from '@shared/navigation/roots';
+import {
+  setAuthRoot,
+  setOnboardingRoot,
+  setTabsRoot,
+} from '@shared/navigation/roots';
 import React, {useEffect} from 'react';
 import {NavigationFunctionComponent} from 'react-native-navigation';
 
 export const SplashScreen: NavigationFunctionComponent = () => {
   // todo: isOnboardingVisited
-  console.warn('Splash');
+  const {isAuthenticated} = useReduxState(state => state.auth);
+  const {isOnboardingVisited, loading} = useReduxState(state => state.app);
+  // console.warn('Splash');
   useEffect(() => {
-    // if (isOnboardingVisited) {
-    // todo: add condition for auth
-    setTabsRoot();
-    // else {
-    // setOnboardingRoot();
-    // }
-  }, []);
+    if (isOnboardingVisited) {
+      if (isAuthenticated) {
+        setTabsRoot();
+      } else {
+        setAuthRoot();
+      }
+    } else {
+      setOnboardingRoot();
+    }
+  }, [loading, isOnboardingVisited, isAuthenticated]);
 
   return <Loading />;
 };

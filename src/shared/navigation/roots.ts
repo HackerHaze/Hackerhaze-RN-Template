@@ -79,3 +79,19 @@ export function setTabsRoot(callback?: () => void) {
     },
   }).then(callback);
 }
+
+export function setAuthRoot() {
+  Navigation.setRoot({
+    root: {
+      component: {
+        name: Screens.auth.name,
+        id: Screens.auth.id,
+        options: {
+          topBar: {
+            visible: false,
+          },
+        },
+      },
+    },
+  });
+}
