@@ -1,26 +1,24 @@
-import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
+import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
 import {NavigationFunctionComponent} from 'react-native-navigation';
 import {useDispatch} from 'react-redux';
 import {Dispatch} from '@redux/store';
+import {setAuthRoot} from '@shared/navigation/roots';
 
 export const OnBoarding: NavigationFunctionComponent = () => {
-  console.warn('OnBoarding ;)');
   const dispatch = useDispatch<Dispatch>();
   const onPressOnboardingButton = () => {
     dispatch.app.setOnboardingVisited();
+    setAuthRoot();
   };
   return (
     <>
       <SafeAreaView>
-        <Text>OnBoarding</Text>
         <TouchableOpacity
           onPress={onPressOnboardingButton}
-          className="w-10 h-10">
-          <Text>Finish Onboarding</Text>
+          className="w-96 h-10">
+          <Text>Finish Onboarding Wizard</Text>
         </TouchableOpacity>
-        {/* <Pressable onPress={onPressOnboardingButton}>
-      </Pressable> */}
       </SafeAreaView>
     </>
   );
