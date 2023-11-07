@@ -3,7 +3,14 @@ RoadMap:
 - Setup TypeScript aliases
 - Setup React Native Navigation
 - Setup Redux
--
+- Setup Navigation
+- Setup Basic Auth
+- Setup Push Notification
+
+Notes:
+
+- For Firebase/PushNotification, add GoogleService-Info.plist
+  refer to: https://rnfirebase.io
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 

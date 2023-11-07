@@ -30,6 +30,8 @@ target 'HHRNTemplate' do
 
   # Flags change depending on the env values.
   flags = get_default_flags()
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
 
   use_react_native!(
     :path => config[:reactNativePath],
