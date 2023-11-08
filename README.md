@@ -1,16 +1,32 @@
 RoadMap:
 
-- Setup TypeScript aliases
+- Setup TypeScript
 - Setup React Native Navigation
 - Setup Redux
 - Setup Navigation
 - Setup Basic Auth
-- Setup Push Notification
+- Setup Push Notifications (Firebase)
+- Setup AppCenter
+- Setup OTA (Code-Push) / Native
+- Setup OTA / Client
+
+- Setup Appium
+- Setup CI-CD for tests and appium
+- Setup Assets
 
 Notes:
 
-- For Firebase/PushNotification, add GoogleService-Info.plist
-  refer to: https://rnfirebase.io
+iOS:
+
+- For Firebase/PushNotification, change GoogleService-Info.plist file with correct credentials.
+- For AppCenter, change AppCenterConfig.plist file with correct credentials.
+
+Android:
+
+- For Firebase, please add `google-services.json` from your firebase's google config.
+- For AppCenter, please change `/android/app/src/main/assets/appcenter-config.json`.
+- For CodePush, please change `/android/app/src/main/res/values/strings.xml`
+  And Add CodePush's `CodePushDeploymentKey`.
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 

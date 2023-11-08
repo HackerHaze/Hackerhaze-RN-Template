@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.analytics.Analytics;
 import com.microsoft.appcenter.crashes.Crashes;
+import com.microsoft.codepush.react.CodePush;
 
 public class MainApplication extends NavigationApplication {
 
@@ -34,7 +35,10 @@ public class MainApplication extends NavigationApplication {
           // packages.add(new MyReactNativePackage());
           return packages;
         }
-
+        @Override
+        protected String getJSBundleFile() {
+            return CodePush.getJSBundleFile();
+        }
         @Override
         protected String getJSMainModuleName() {
           return "index";

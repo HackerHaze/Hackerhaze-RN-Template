@@ -4,4 +4,6 @@
         DO_NOT_ASK_JAVASCRIPT</string>
     <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">
         ALWAYS_SEND</string>
+    <!-- Change this to implement OTA -->
+    <string moduleConfig="true" name="CodePushDeploymentKey">DeploymentKey</string>
 </resources>
