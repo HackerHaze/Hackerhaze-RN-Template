@@ -10,6 +10,12 @@ import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.facebook.soloader.SoLoader;
 import java.util.List;
+import android.util.Log;
+import java.io.InputStream;
+import org.json.JSONObject;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 public class MainApplication extends NavigationApplication {
 
@@ -57,6 +63,22 @@ public class MainApplication extends NavigationApplication {
     if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
       // If you opted-in for the New Architecture, we load the native entry point for this app.
       DefaultNewArchitectureEntryPoint.load();
+    }
+    try {
+      InputStream is = getAssets().open("appcenter-config.json");
+      int size = is.available();
+      byte[] buffer = new byte[size];
+      is.read(buffer);
+      is.close();
+
+      String json = new String(buffer, "UTF-8");
+      JSONObject jsonObject = new JSONObject(json);
+      String appSecret = jsonObject.getString("app_secret");
+      if (!appSecret.equals("{YOUR_APP_SECRET}")) {
+        AppCenter.start(this, appSecret, Analytics.class, Crashes.class);
+      }
+    } catch (Exception ex) {
+      ex.printStackTrace();
     }
     ReactNativeFlipper.initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
