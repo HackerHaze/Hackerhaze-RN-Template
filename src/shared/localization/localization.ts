@@ -5,6 +5,8 @@ import {emptyLocalization} from './translations/emptyLocalization';
 import {pagesLocalization} from './translations/pagesLocalization';
 import {onboardingLocalization} from './translations/onboardingLocalization';
 import {setDateLocale} from './dateFormatter';
+import {mainLocalization} from './translations/mainLocalization';
+import {settingsLocalization} from './translations/settingsLocalization';
 
 export enum Languages {
   en = 'en',
@@ -16,6 +18,8 @@ export const localization = {
   empty: new LocalizedStrings(emptyLocalization),
   pages: new LocalizedStrings(pagesLocalization),
   onboarding: new LocalizedStrings(onboardingLocalization),
+  main: new LocalizedStrings(mainLocalization),
+  settings: new LocalizedStrings(settingsLocalization),
 };
 
 export function getLanguage(): string {
@@ -42,4 +46,8 @@ export function setLanguage(language?: Languages): void {
   }
 
   setDateLocale(localizationLanguage);
+  console.log(
+    '🚀 ~ file: localization.ts:45 ~ setLanguage ~ localizationLanguage:',
+    localizationLanguage,
+  );
 }

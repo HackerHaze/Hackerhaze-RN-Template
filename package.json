@@ -30,6 +30,7 @@
     "react-native-code-push": "^8.1.0",
     "react-native-device-info": "10.11.0",
     "react-native-gesture-handler": "2.13.4",
+    "react-native-localization": "^2.3.2",
     "react-native-navigation": "7.37.1",
     "react-native-reanimated": "3.5.4",
     "react-native-svg": "13.14.0",

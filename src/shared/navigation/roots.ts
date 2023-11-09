@@ -1,5 +1,6 @@
 import {Navigation} from 'react-native-navigation';
 import {Screens, Tabs} from './vars';
+import {localization} from '@shared/localization/localization';
 
 export function setInitialRoot() {
   Navigation.setRoot({
@@ -51,7 +52,7 @@ export function setTabsRoot(callback?: () => void) {
               ],
               options: {
                 bottomTab: {
-                  text: 'Main Screen',
+                  text: localization.main.title,
                 },
               },
             },
@@ -69,7 +70,7 @@ export function setTabsRoot(callback?: () => void) {
               ],
               options: {
                 bottomTab: {
-                  text: 'Settings Screen',
+                  text: localization.settings.title,
                 },
               },
             },
