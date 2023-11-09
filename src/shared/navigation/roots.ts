@@ -1,6 +1,9 @@
 import {Navigation} from 'react-native-navigation';
 import {Screens, Tabs} from './vars';
 import {localization} from '@shared/localization/localization';
+import {SFSymbols} from '@assets/symbols/SFSymbols';
+import {getPlatformTabsIcon} from './helpers/navigationIconHelpers';
+import {Colors} from '@core/theme/colors';
 
 export function setInitialRoot() {
   Navigation.setRoot({
@@ -53,6 +56,12 @@ export function setTabsRoot(callback?: () => void) {
               options: {
                 bottomTab: {
                   text: localization.main.title,
+                  ...getPlatformTabsIcon(
+                    SFSymbols.house,
+                    SFSymbols['house.fill'],
+                    'house',
+                  ),
+                  iconColor: Colors.black,
                 },
               },
             },
@@ -71,6 +80,12 @@ export function setTabsRoot(callback?: () => void) {
               options: {
                 bottomTab: {
                   text: localization.settings.title,
+                  ...getPlatformTabsIcon(
+                    SFSymbols['gearshape.2'],
+                    SFSymbols['gearshape.2.fill'],
+                    'gear',
+                  ),
+                  iconColor: Colors.black,
                 },
               },
             },
