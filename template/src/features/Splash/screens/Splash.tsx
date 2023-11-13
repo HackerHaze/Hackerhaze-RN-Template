@@ -8,21 +8,31 @@ import {
   setOnboardingRoot,
   setTabsRoot,
 } from '@shared/navigation/roots';
-
+import {WebView} from 'react-native-webview';
+import {SafeAreaView} from 'react-native';
 export const SplashScreen: NavigationFunctionComponent = () => {
   const {isAuthenticated} = useReduxState(state => state.auth);
   const {isOnboardingVisited, loading} = useReduxState(state => state.app);
   useEffect(() => {
     if (isOnboardingVisited) {
       if (isAuthenticated) {
-        setTabsRoot();
+        // setTabsRoot();
       } else {
-        setAuthRoot();
+        // setAuthRoot();
       }
     } else {
-      setOnboardingRoot();
+      // setOnboardingRoot();
     }
   }, [loading, isOnboardingVisited, isAuthenticated]);
-
-  return <Loading />;
+  // return <></>;
+  return (
+    <>
+      <SafeAreaView />
+      <WebView
+        source={{
+          uri: 'https://www.hackerhaze.com/docs/templates/rntemplate/intro',
+        }}
+      />
+    </>
+  );
 };
