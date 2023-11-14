@@ -11,7 +11,7 @@
 Welcome to HackerHaze's React Native Template! This is a minimal, yet highly functional
 template that leverages some of the best libraries in the React Native ecosystem.
 
-For the full documentation head out to [Docs](https://www.hackerhaze.com/templates/rntemplate/intro)
+For the full documentation head out to [Docs](https://www.hackerhaze.com/docs/templates/rntemplate/intro)
 
 It's designed to get you up in speed with a solid foundation for your mobile app development.
 
