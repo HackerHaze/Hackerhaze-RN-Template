@@ -6,14 +6,16 @@
   />
 </div>
 
-# Introduction
+# Introduction & Quick Start
 
 Welcome to HackerHaze's React Native Template! This is a minimal, yet highly functional
 template that leverages some of the best libraries in the React Native ecosystem.
 
 It's designed to get you up in speed with a solid foundation for your mobile app development.
 
-Please visit our [Docs](https://www.hackerhaze.com/docs/templates/rntemplate/intro) for getting started and configuring third party services
+```bash
+npx react-native init YourProjectName --template hackerhaze-react-native-template
+```
 
 ## Libraries Used
 
