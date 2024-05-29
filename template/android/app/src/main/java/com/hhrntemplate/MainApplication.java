@@ -2,14 +2,13 @@ package com.hhrntemplate;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
-import com.reactnativenavigation.NavigationApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
-import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.facebook.soloader.SoLoader;
 import java.util.List;
+import com.facebook.react.ReactApplication;
 import android.util.Log;
 import java.io.InputStream;
 import org.json.JSONObject;
@@ -18,10 +17,10 @@ import com.microsoft.appcenter.analytics.Analytics;
 import com.microsoft.appcenter.crashes.Crashes;
 import com.microsoft.codepush.react.CodePush;
 
-public class MainApplication extends NavigationApplication {
+public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
-      new NavigationReactNativeHost(this) {
+      new DefaultReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
@@ -39,11 +38,11 @@ public class MainApplication extends NavigationApplication {
         protected String getJSBundleFile() {
             return CodePush.getJSBundleFile();
         }
+
         @Override
         protected String getJSMainModuleName() {
           return "index";
         }
-
         @Override
         protected boolean isNewArchEnabled() {
           return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
@@ -53,6 +52,7 @@ public class MainApplication extends NavigationApplication {
         protected Boolean isHermesEnabled() {
           return BuildConfig.IS_HERMES_ENABLED;
         }
+        
       };
 
   @Override
@@ -84,6 +84,7 @@ public class MainApplication extends NavigationApplication {
     } catch (Exception ex) {
       ex.printStackTrace();
     }
+    SoLoader.init(this, /* native exopackage */ false);
     ReactNativeFlipper.initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
 }
