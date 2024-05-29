@@ -1,38 +1,33 @@
 import React, {useEffect} from 'react';
-import {NavigationFunctionComponent} from 'react-native-navigation';
 
-import Loading from '@shared/components/Loading';
 import {useReduxState} from '@shared/hooks/useReduxState';
-import {
-  setAuthRoot,
-  setOnboardingRoot,
-  setTabsRoot,
-} from '@shared/navigation/roots';
-import {WebView} from 'react-native-webview';
+import {StackActions, useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native';
-export const SplashScreen: NavigationFunctionComponent = () => {
+export const SplashScreen: React.FC = () => {
   const {isAuthenticated} = useReduxState(state => state.auth);
   const {isOnboardingVisited, loading} = useReduxState(state => state.app);
+  const navigation = useNavigation();
   useEffect(() => {
-    if (isOnboardingVisited) {
-      if (isAuthenticated) {
-        // setTabsRoot();
-      } else {
-        // setAuthRoot();
+    const checkStatus = async () => {
+      if (!loading) {
+        if (isAuthenticated) {
+          if (isOnboardingVisited) {
+            navigation.dispatch(StackActions.replace('MainStack'));
+          } else {
+            navigation.dispatch(StackActions.replace('OnboardingStack'));
+          }
+        } else {
+          navigation.dispatch(StackActions.replace('AuthStack'));
+        }
       }
-    } else {
-      // setOnboardingRoot();
-    }
-  }, [loading, isOnboardingVisited, isAuthenticated]);
-  // return <></>;
+    };
+
+    checkStatus();
+  }, [navigation, loading, isAuthenticated, isOnboardingVisited]);
+
   return (
     <>
       <SafeAreaView />
-      <WebView
-        source={{
-          uri: 'https://www.hackerhaze.com/docs/templates/rntemplate/intro',
-        }}
-      />
     </>
   );
 };

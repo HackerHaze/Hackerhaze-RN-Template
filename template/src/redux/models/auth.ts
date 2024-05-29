@@ -6,7 +6,7 @@ type AuthState = {
 };
 
 const initialState: AuthState = {
-  isAuthenticated: false,
+  isAuthenticated: true,
 };
 
 export const auth = createModel<RootModel>()({

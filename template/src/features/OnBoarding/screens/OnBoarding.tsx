@@ -1,15 +1,15 @@
 import React from 'react';
 import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
-import {NavigationFunctionComponent} from 'react-native-navigation';
 import {useDispatch} from 'react-redux';
 import {Dispatch} from '@redux/store';
-import {setAuthRoot} from '@shared/navigation/roots';
+import {StackActions, useNavigation} from '@react-navigation/native';
 
-export const OnBoarding: NavigationFunctionComponent = () => {
+export const OnBoarding: React.FC = () => {
   const dispatch = useDispatch<Dispatch>();
+  const navigation = useNavigation();
   const onPressOnboardingButton = () => {
     dispatch.app.setOnboardingVisited();
-    setAuthRoot();
+    navigation.dispatch(StackActions.replace('MainStack'));
   };
   return (
     <>

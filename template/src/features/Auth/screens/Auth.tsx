@@ -1,24 +1,14 @@
 import React from 'react';
-import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
-import {useDispatch} from 'react-redux';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import LoginScreen from './Login';
 
-import {Dispatch} from '@redux/store';
-import {setTabsRoot} from '@shared/navigation/roots';
-
-function AuthScreen(): JSX.Element {
-  const dispatch = useDispatch<Dispatch>();
-  const onPressAuthButton = () => {
-    dispatch.auth.setAuthenticated(true);
-    setTabsRoot();
-  };
+const AuthStack = createNativeStackNavigator();
+const AuthScreen: React.FC = () => {
   return (
-    <SafeAreaView>
-      <TouchableOpacity onPress={onPressAuthButton}>
-        <Text>Do Auth</Text>
-      </TouchableOpacity>
-      <></>
-    </SafeAreaView>
+    <AuthStack.Navigator>
+      <AuthStack.Screen name="Login" component={LoginScreen} />
+    </AuthStack.Navigator>
   );
-}
+};
 
 export default AuthScreen;
