@@ -11,9 +11,13 @@
 Welcome to HackerHaze's React Native Template! This is a minimal, yet highly functional
 template that leverages some of the best libraries in the React Native ecosystem.
 
+It's designed to get you up in speed with a solid foundation for your mobile app development with the most important libraries of the ecossystem.
+
+A great starting point for any enterprise-level solution that requires independence, granular control over native modules with RN CLI.
+
 For the full documentation head out to [Docs](https://www.hackerhaze.com/docs/templates/rntemplate/intro)
 
-It's designed to get you up in speed with a solid foundation for your mobile app development.
+
 
 ```bash
 npx react-native init YourProjectName --template hackerhaze-react-native-template
@@ -30,22 +34,29 @@ We've included a number of libraries in this template to help you get started. H
 
 ### State Management
 
+#### Synchronous State:
 - `@rematch/core@2.2.0`: A Redux-based state management library that provides a lightweight and flexible way to write Redux code.
 - `@rematch/immer@2.1.3`: Plugin for using Immer to write reducers that manipulate state in an immutable way.
 - `@rematch/loading@2.1.2`: Plugin for automatically managing loading states for effects.
 - `@rematch/persist@2.1.2`: Plugin for saving and rehydrating rematch models using localStorage.
 - `@rematch/select@3.1.2`: Plugin for creating optimized selectors.
 - `@rematch/updated@2.1.2`: Plugin for tracking when state is updated.
+OBS: Rematch also has support for 'effects', for simpler/granular async functions.  
+  
 - `redux@4.2.1`: A predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.
 - `react-redux@8.1.3`: Official React bindings for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update data.
 
+#### Async State:
+- `@tanstack/react-query@5.40.0`: Powerful asynchronous state management for TS/JS, React and more.
+  
 ### Navigation
 
-- `react-native-navigation@7.37.1`: A complete native navigation solution for React Native, with optional Redux support, Jest tests, and more.
+~~- `react-native-navigation@7.37.1`: A complete native navigation solution for React Native, with optional Redux support, Jest tests, and more. ATTENTION: We have moved away from RNN in favour of @react-navigation/native~~
+- `@react-navigation/native@7.0.0-alpha` : The most standart and complete solution for Navigation in React-Native
 
 ### UI and Styling
 
-- `nativewind@2.0.11`: A utility-first CSS framework for rapid UI development.
+- `nativewind@2.0.11`: A utility-first CSS framework for rapid UI development. Comimng soon: Upgrade to nativewind@4.0.1 
 - `react-native-vector-icons@10.0.1`: Customizable Icons for React Native.
 
 ### Form Management
@@ -84,6 +95,10 @@ We've included a number of libraries in this template to help you get started. H
 
 - `redux-logger@3.0.6`: Logger middleware for Redux.
 - `yup@1.3.2`: A JavaScript schema builder for value parsing and validation.
+- 
+Coming soon:
+- reactotron-react-query: cli with debugging tools, logger and more with reactotron
+
 
 ### Testing, Linting, Transpiling and Tooling
 
